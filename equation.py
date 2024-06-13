@@ -1,5 +1,11 @@
 import re
 
+def get_equation_coefficients_from_file(filename):
+    # Lire l'équation depuis le fichier data.txt et récupérer les coefficients
+    equation = read_equation_from_file(filename)
+    coefficients = get_equation_coefficients(equation)
+    return coefficients
+
 def read_equation_from_file(filename):
     with open(filename, 'r') as file:
         equation = file.read().strip()
@@ -52,8 +58,3 @@ def get_equation_coefficients(equation):
             print(f"Erreur lors de l'évaluation du terme constant {constant_term[0]}: {e}")
     
     return coeffs
-
-# Lire l'équation depuis le fichier data.txt et récupérer les coefficients
-equation = read_equation_from_file('data.txt')
-coefficients = get_equation_coefficients(equation)
-print(coefficients)
