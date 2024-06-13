@@ -1,9 +1,11 @@
 import re
 
-def get_equation_coefficients():
-    # Demander à l'utilisateur d'entrer une équation
-    equation = input("Entrez une équation de la forme ax^2+by^2+cz^2+dxz+exy+fzy+gx+hy+iz+j: ")
+def read_equation_from_file(filename):
+    with open(filename, 'r') as file:
+        equation = file.read().strip()
+    return equation
 
+def get_equation_coefficients(equation):
     # Initialiser les coefficients à zéro
     coeffs = {'a': 0, 'b': 0, 'c': 0, 'd': 0, 'e': 0, 'f': 0, 'g': 0, 'h': 0, 'i': 0, 'j': 0}
 
@@ -51,6 +53,7 @@ def get_equation_coefficients():
     
     return coeffs
 
-# Tester la fonction
-coefficients = get_equation_coefficients()
+# Lire l'équation depuis le fichier data.txt et récupérer les coefficients
+equation = read_equation_from_file('data.txt')
+coefficients = get_equation_coefficients(equation)
 print(coefficients)
