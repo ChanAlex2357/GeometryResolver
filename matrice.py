@@ -22,3 +22,9 @@ def create_matrix_from_coefficients(coeffs):
     
     # Si les conditions ne sont pas remplies, retourner None
     return None
+
+def calculate_determinant(matrix):
+    if matrix is not None:
+        return np.linalg.det(matrix)
+    else:
+        return None
